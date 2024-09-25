@@ -8,6 +8,6 @@ namespace ConsoleAppStruct
 {
     class Lection : SubjectClass
     {
-        public string[] AttendingGroups { get; set; }
+        public int AmountOfAttendingGroups { get; set; }
     }
 }

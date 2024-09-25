@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppStruct
 {
-    public class SubjectClass
+    public abstract class SubjectClass
     {
         public DateTime Date { get; set; }
         public string ClassroomName { get; set; }
         public string TeacherName { get; set; }
+
+        public abstract void DisplayParameters();
     }
 }
