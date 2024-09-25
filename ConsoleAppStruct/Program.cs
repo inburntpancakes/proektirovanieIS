@@ -10,12 +10,13 @@ namespace ConsoleAppStruct
     {
         static void Main(string[] args)
         {
-            // string inputedSubjectClass = Console.ReadLine();
-            string inputedSubjectClass = "10.10.2010 '3-21' 'John Doe'";
-
-            SubjectClass mySubjectClass = InputProcessing.ConvertToSubjectClass(inputedSubjectClass);
-
-            Console.WriteLine(mySubjectClass.Date.ToShortDateString() + " / " + mySubjectClass.ClassroomName + " / " + mySubjectClass.TeacherName);
+            string fileData = DataAccess.GetFileData();
+            SubjectClass[] subjectClasses = DataProcessing.ConvertToSubjectClasses(fileData);
+            
+            foreach (SubjectClass sss in subjectClasses)
+            {
+                Console.WriteLine(sss.Date.ToShortDateString() + " / " + sss.ClassroomName + " / " + sss.TeacherName);
+            }
             Console.ReadKey();
         }
     }

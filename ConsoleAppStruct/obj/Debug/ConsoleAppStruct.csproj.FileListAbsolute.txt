@@ -19,3 +19,10 @@ E:\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csprojAssemblyRe
 E:\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csproj.CoreCompileInputs.cache
 E:\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.exe
 E:\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.pdb
+E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\bin\Debug\ConsoleAppStruct.exe.config
+E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\bin\Debug\ConsoleAppStruct.exe
+E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\bin\Debug\ConsoleAppStruct.pdb
+E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csprojAssemblyReference.cache
+E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csproj.CoreCompileInputs.cache
+E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.exe
+E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.pdb

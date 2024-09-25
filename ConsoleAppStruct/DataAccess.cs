@@ -9,11 +9,19 @@ namespace ConsoleAppStruct
 {
     class DataAccess
     {
-        private string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data.txt");
+        private static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data.txt");
+        private static string fileData = AccessFileData();
 
-        public string[] GetFileData()
+        public static string GetFileData()
         {
-            return File.ReadAllLines(filePath);
+            return fileData;
+        }
+
+        private static string AccessFileData()
+        {
+            if (File.Exists(filePath) == false)
+            { File.Create(filePath); }
+            return File.ReadAllText(filePath);
         }
     }
 }
