@@ -15,7 +15,7 @@ namespace ConsoleAppStruct
             
             foreach (SubjectClass sss in subjectClasses)
             {
-                Console.WriteLine(sss.Date.ToShortDateString() + " / " + sss.ClassroomName + " / " + sss.TeacherName);
+                sss.DisplayParameters();
             }
             Console.ReadKey();
         }

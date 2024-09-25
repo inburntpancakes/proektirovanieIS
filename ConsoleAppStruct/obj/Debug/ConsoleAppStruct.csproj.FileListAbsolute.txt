@@ -26,3 +26,10 @@ E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csprojAs
 E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csproj.CoreCompileInputs.cache
 E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.exe
 E:\varchiv\ConsoleAppStruct\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.pdb
+C:\Users\user\Desktop\proektirovanieIS-main\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\proektirovanieIS-main\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\proektirovanieIS-main\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.exe
+C:\Users\user\Desktop\proektirovanieIS-main\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.pdb
+C:\Users\user\Desktop\proektirovanieIS-main\ConsoleAppStruct\bin\Debug\ConsoleAppStruct.exe.config
+C:\Users\user\Desktop\proektirovanieIS-main\ConsoleAppStruct\bin\Debug\ConsoleAppStruct.exe
+C:\Users\user\Desktop\proektirovanieIS-main\ConsoleAppStruct\bin\Debug\ConsoleAppStruct.pdb

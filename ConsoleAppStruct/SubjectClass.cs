@@ -13,5 +13,7 @@ namespace ConsoleAppStruct
         public string TeacherName { get; set; }
 
         public abstract void DisplayParameters();
+
+        public abstract void UpdateParameters(List<string> NewParameters);
     }
 }
