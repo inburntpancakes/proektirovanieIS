@@ -11,6 +11,5 @@ namespace ConsoleAppStruct
         public DateTime Date { get; set; }
         public string ClassroomName { get; set; }
         public string TeacherName { get; set; }
-        
     }
 }

@@ -69,7 +69,7 @@ namespace ConsoleAppStruct
 
             DateTime convertedDate = DateTime.ParseExact(subjectClassParameters[0], "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
-            SubjectClass newSubjectClass = new SubjectClass() { Date = convertedDate, ClassName = subjectClassParameters[1], TeacherName = subjectClassParameters[2] };
+            SubjectClass newSubjectClass = new SubjectClass() { Date = convertedDate, ClassroomName = subjectClassParameters[1], TeacherName = subjectClassParameters[2] };
             return newSubjectClass;
         }
         
