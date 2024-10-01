@@ -10,14 +10,17 @@ namespace ConsoleAppStruct
     {
         static void Main(string[] args)
         {
-            string fileData = DataAccess.GetFileData();
-            SubjectClass[] subjectClasses = DataProcessing.ConvertToSubjectClasses(fileData);
-            
-            foreach (SubjectClass sss in subjectClasses)
+            string[] fileData = DataAccess.AccessFileData();
+            Subject[] subjectClasses = DataProcessing.ConvertToSubjectClasses(fileData);
+            foreach (Subject subject in subjectClasses)
             {
-                sss.DisplayParameters();
+                Console.WriteLine(subject.ToString());
             }
             Console.ReadKey();
+
+            string userInput = "Лекция: 10.10.2010 '3-21' 'Jane Doe' 22";
+            Subject userSubject = DataProcessing.ConvertToCorrespondingClass(userInput);
+            DataAccess.AddFileData(userSubject);
         }
     }
 }

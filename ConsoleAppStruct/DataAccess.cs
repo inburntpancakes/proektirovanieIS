@@ -10,18 +10,16 @@ namespace ConsoleAppStruct
     class DataAccess
     {
         private static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data.txt");
-        private static string fileData = AccessFileData();
 
-        public static string GetFileData()
+        public static string[] AccessFileData()
         {
-            return fileData;
+            if (File.Exists(filePath) == false) { File.Create(filePath); }
+            return File.ReadAllLines(filePath);
         }
 
-        private static string AccessFileData()
+        public static void AddFileData(Subject subjectToAdd)
         {
-            if (File.Exists(filePath) == false)
-            { File.Create(filePath); }
-            return File.ReadAllText(filePath);
+            File.AppendAllText(filePath, "\n" + subjectToAdd.ToString());
         }
     }
 }
