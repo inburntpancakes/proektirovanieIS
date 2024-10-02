@@ -9,7 +9,7 @@ namespace ConsoleAppStruct
 {
     class DataProcessing
     {
-        public static Subject[] ConvertToSubjectClasses(string[] subjectsToConvert)
+        public static Subject[] ConvertToSubjects(string[] subjectsToConvert)
         {
             Subject[] subjectClassesConverted = new Subject[subjectsToConvert.Length];
             int k = -1;
@@ -25,17 +25,16 @@ namespace ConsoleAppStruct
         {
             string correspondingClass = classLine.Split(':')[0];
             int letterSkipCount = correspondingClass.Length + 1;
-            string subjectClassUnconverted = classLine.Remove(0, letterSkipCount);
-            List<string> classParameters = GetParameters(subjectClassUnconverted);
+            string subjectParameters = classLine.Remove(0, letterSkipCount);
             switch (correspondingClass)
             {
-                case "Лекция": return TransferToClass(classParameters, new LectionSubject());
-                case "Практика": return TransferToClass(classParameters, new PracticeSubject());
+                case "Лекция": return TransferToClass(subjectParameters, new LectionSubject());
+                case "Практика": return TransferToClass(subjectParameters, new PracticeSubject());
                 default: throw new ArgumentException();
             }
         }
 
-        private static List<string> GetParameters(string Input)
+        public static List<string> GetParameters(string Input)
         {
             List<string> subjectClassParameters = new List<string>();
             string currentlyRecordedParameter = "";
@@ -90,7 +89,7 @@ namespace ConsoleAppStruct
             return subjectClassParameters;
         }
 
-        private static Subject TransferToClass(List<string> subjectParameters, Subject subjectToTransferTo)
+        private static Subject TransferToClass(string subjectParameters, Subject subjectToTransferTo)
         {
             subjectToTransferTo.UpdateParameters(subjectParameters);
             return subjectToTransferTo;

@@ -11,8 +11,8 @@ namespace ConsoleAppStruct
         public DateTime Date { get; set; }
         public string ClassroomName { get; set; }
         public string TeacherName { get; set; }
-
-        public abstract void UpdateParameters(List<string> NewParameters);
         public abstract override string ToString();
+
+        public abstract void UpdateParameters(string NewParameters);
     }
 }

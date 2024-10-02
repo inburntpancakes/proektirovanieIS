@@ -11,10 +11,10 @@ namespace ConsoleAppStruct
         static void Main(string[] args)
         {
             string[] fileData = DataAccess.AccessFileData();
-            Subject[] subjectClasses = DataProcessing.ConvertToSubjectClasses(fileData);
-            foreach (Subject subject in subjectClasses)
+            Subject[] subjects = DataProcessing.ConvertToSubjects(fileData);
+            foreach (Subject subject in subjects)
             {
-                Console.WriteLine(subject.ToString());
+                Console.WriteLine($"{subject}");
             }
             Console.ReadKey();
 
