@@ -13,16 +13,16 @@ namespace ConsoleAppStruct
 
         public override string ToString()
         {
-            return $"Лекция: {Date.ToShortDateString()} '{ClassroomName}' '{TeacherName}' {AmountOfAttendingGroups}";
+            return $"Лекция| Дата:{Date.ToShortDateString()} Кабинет:'{ClassroomName}' Преподаватель:'{TeacherName}' КолвоГрупп:{AmountOfAttendingGroups}";
         }
 
         public override void UpdateParameters(string NewParameters)
         {
-            List<string> SplitParameters = DataProcessing.GetParameters(NewParameters);
-            Date = DateTime.ParseExact(SplitParameters[0], "dd.MM.yyyy", CultureInfo.InvariantCulture);
-            ClassroomName = SplitParameters[1];
-            TeacherName = SplitParameters[2];
-            AmountOfAttendingGroups = Convert.ToInt32(SplitParameters[3]);
+            Dictionary<string, string> Parameters = DataProcessing.GetParameters(NewParameters);
+            Date = DateTime.ParseExact(Parameters["Дата"], "dd.MM.yyyy", CultureInfo.InvariantCulture);
+            ClassroomName = Parameters["Кабинет"];
+            TeacherName = Parameters["Преподаватель"];
+            AmountOfAttendingGroups = Convert.ToInt32(Parameters["КолвоГрупп"]);
         }
     }
 }

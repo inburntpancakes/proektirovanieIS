@@ -23,7 +23,7 @@ namespace ConsoleAppStruct
 
         public static Subject ConvertToCorrespondingClass(string classLine)
         {
-            string correspondingClass = classLine.Split(':')[0];
+            string correspondingClass = classLine.Split('|')[0];
             int letterSkipCount = correspondingClass.Length + 1;
             string subjectParameters = classLine.Remove(0, letterSkipCount);
             switch (correspondingClass)
@@ -34,7 +34,7 @@ namespace ConsoleAppStruct
             }
         }
 
-        public static List<string> GetParameters(string Input)
+        public static List<string> GetParametersOld(string Input)
         {
             List<string> subjectClassParameters = new List<string>();
             string currentlyRecordedParameter = "";
@@ -87,6 +87,59 @@ namespace ConsoleAppStruct
             }
             subjectClassParameters.Add(currentlyRecordedParameter);
             return subjectClassParameters;
+        }
+
+        public static Dictionary<string, string> GetParameters(string Input)
+        {
+            Dictionary<string, string> inputedParameters = new Dictionary<string, string>();
+
+            string currentlyRecordedParameter = "";
+            string currentlyRecordedKey = "";
+            parameterType currentParameterType = parameterType.None;
+            bool waitingForParameterKey = true;
+            char separationLetterForParameter = '\0';
+
+            foreach (char letter in Input)
+            {
+                if (waitingForParameterKey)
+                {
+                    if (char.IsWhiteSpace(letter)) { continue; }
+                    if (letter == ':') { waitingForParameterKey = false; }
+                    else { currentlyRecordedKey += letter; }
+                    continue;
+                }
+
+                if (char.IsWhiteSpace(letter) && currentParameterType == parameterType.None) { continue; }
+
+                if ((letter == '\'' || letter == '\"') && currentParameterType == parameterType.None)
+                { currentParameterType = parameterType.RecordingWithQuotes; separationLetterForParameter = letter; continue; }
+
+                if (char.IsWhiteSpace(letter) == false && currentParameterType == parameterType.None)
+                { currentParameterType = parameterType.RecordingWithoutQuotes; }
+
+                if (((letter == separationLetterForParameter) && currentParameterType == parameterType.RecordingWithQuotes)
+                    || (char.IsWhiteSpace(letter) && currentParameterType == parameterType.RecordingWithoutQuotes))
+                { 
+                    currentParameterType = parameterType.None;
+                    inputedParameters.Add(currentlyRecordedKey, currentlyRecordedParameter);
+                    waitingForParameterKey = true;
+                    currentlyRecordedKey = ""; currentlyRecordedParameter = "";
+                    continue;
+                }
+
+                currentlyRecordedParameter += letter;
+            }
+            if (currentlyRecordedParameter != "")
+            { inputedParameters.Add(currentlyRecordedKey, currentlyRecordedParameter); }
+
+            return inputedParameters;
+        }
+
+        private enum parameterType
+        {
+            None,
+            RecordingWithQuotes,
+            RecordingWithoutQuotes
         }
 
         private static Subject TransferToClass(string subjectParameters, Subject subjectToTransferTo)

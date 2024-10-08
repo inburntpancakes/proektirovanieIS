@@ -10,6 +10,20 @@ namespace ConsoleAppStruct
     {
         static void Main(string[] args)
         {
+            //string[] fileData = DataAccess.AccessFileData();
+            //Subject[] subjects = DataProcessing.ConvertToSubjects(fileData);
+            //foreach (Subject subject in subjects)
+            //{
+            //    Console.WriteLine($"{subject}");
+            //}
+            //Console.ReadKey();
+
+            //string userInput = "Лекция: 10.10.2010 '3-21' 'Jane Doe' 22";
+            string userInput = "Лекция| Дата:10.10.2010 Кабинет:'3-21' Преподаватель:'Jane Doe' КолвоГрупп:22";
+
+            Subject userSubject = DataProcessing.ConvertToCorrespondingClass(userInput);
+            DataAccess.AddFileData(userSubject);
+
             string[] fileData = DataAccess.AccessFileData();
             Subject[] subjects = DataProcessing.ConvertToSubjects(fileData);
             foreach (Subject subject in subjects)
@@ -17,10 +31,6 @@ namespace ConsoleAppStruct
                 Console.WriteLine($"{subject}");
             }
             Console.ReadKey();
-
-            string userInput = "Лекция: 10.10.2010 '3-21' 'Jane Doe' 22";
-            Subject userSubject = DataProcessing.ConvertToCorrespondingClass(userInput);
-            DataAccess.AddFileData(userSubject);
         }
     }
 }
