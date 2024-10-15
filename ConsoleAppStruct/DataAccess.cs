@@ -19,7 +19,12 @@ namespace ConsoleAppStruct
 
         public static void AddFileData(Subject subjectToAdd)
         {
-            File.AppendAllText(filePath, "\n" + subjectToAdd.ToString());
+            if (File.Exists(filePath) == true && File.ReadAllText(filePath) != "")
+            {
+                File.AppendAllText(filePath, "\n" + subjectToAdd.ToString());
+                return;
+            }
+            File.AppendAllText(filePath, subjectToAdd.ToString());
         }
     }
 }
