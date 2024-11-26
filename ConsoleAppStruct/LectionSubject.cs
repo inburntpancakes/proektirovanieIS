@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleAppStruct
 {
-    class LectionSubject : Subject
+    public class LectionSubject : Subject
     {
         public int AmountOfAttendingGroups { get; set; }
 
@@ -16,13 +13,18 @@ namespace ConsoleAppStruct
             return $"Лекция| Дата:{Date.ToShortDateString()} Кабинет:'{ClassroomName}' Преподаватель:'{TeacherName}' КолвоГрупп:{AmountOfAttendingGroups}";
         }
 
-        public override void UpdateParameters(string NewParameters)
+        public override void UpdateParameters(Dictionary<string, string> Parameters)
         {
-            Dictionary<string, string> Parameters = DataProcessing.GetParameters(NewParameters);
-            Date = DateTime.ParseExact(Parameters["Дата"], "dd.MM.yyyy", CultureInfo.InvariantCulture);
-            ClassroomName = Parameters["Кабинет"];
-            TeacherName = Parameters["Преподаватель"];
-            AmountOfAttendingGroups = Convert.ToInt32(Parameters["КолвоГрупп"]);
+            ClassroomName = Parameters.ContainsKey("Кабинет") ? Parameters["Кабинет"] : throw new ArgumentException("Введен некорректный параметр Кабинет (либо не введен вовсе)");
+            TeacherName = Parameters.ContainsKey("Преподаватель") ? Parameters["Преподаватель"] : throw new ArgumentException("Введен некорректный параметр Преподаватель (либо не введен вовсе)");
+
+            if (Parameters.ContainsKey("Дата") && DateTime.TryParseExact(Parameters["Дата"], "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateParsed))
+            { Date = dateParsed; }
+            else { throw new ArgumentException("Введен некорректный параметр Дата (либо не введен вовсе)"); }
+
+            if (Parameters.ContainsKey("КолвоГрупп") && Int32.TryParse(Parameters["КолвоГрупп"], out int amountOfAttendingGroupsParsed))
+            { AmountOfAttendingGroups = amountOfAttendingGroupsParsed; }
+            else { throw new ArgumentException("Введен некорректный параметр КолвоГрупп (либо не введен вовсе)"); }
         }
     }
 }

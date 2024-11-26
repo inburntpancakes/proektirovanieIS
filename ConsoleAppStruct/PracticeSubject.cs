@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleAppStruct
 {
-    class PracticeSubject : Subject
+    public class PracticeSubject : Subject
     {
         public string AttendingGroup { get; set; }
 
@@ -16,13 +13,15 @@ namespace ConsoleAppStruct
             return $"Практика| Дата:{Date.ToShortDateString()} Кабинет:'{ClassroomName}' Преподаватель:'{TeacherName}' Группа:{AttendingGroup}";
         }
 
-        public override void UpdateParameters(string NewParameters)
+        public override void UpdateParameters(Dictionary<string, string> Parameters)
         {
-            Dictionary<string, string> Parameters = DataProcessing.GetParameters(NewParameters);
-            Date = DateTime.ParseExact(Parameters["Дата"], "dd.MM.yyyy", CultureInfo.InvariantCulture);
-            ClassroomName = Parameters["Кабинет"];
-            TeacherName = Parameters["Преподаватель"];
-            AttendingGroup = Parameters["Группа"];
+            ClassroomName = Parameters.ContainsKey("Кабинет") ? Parameters["Кабинет"] : throw new ArgumentException("Введен некорректный параметр Кабинет (либо не введен вовсе)");
+            TeacherName = Parameters.ContainsKey("Преподаватель") ? Parameters["Преподаватель"] : throw new ArgumentException("Введен некорректный параметр Преподаватель (либо не введен вовсе)");
+            AttendingGroup = Parameters.ContainsKey("Группа") ? Parameters["Группа"] : throw new ArgumentException("Введен некорректный параметр Группа (либо не введен вовсе)");
+
+            if (Parameters.ContainsKey("Дата") && DateTime.TryParseExact(Parameters["Дата"], "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateParsed))
+            { Date = dateParsed; }
+            else { throw new ArgumentException("Введен некорректный параметр Дата (либо не введен вовсе)"); }
         }
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleAppStruct
 {
@@ -13,6 +10,6 @@ namespace ConsoleAppStruct
         public string TeacherName { get; set; }
         public abstract override string ToString();
 
-        public abstract void UpdateParameters(string NewParameters);
+        public abstract void UpdateParameters(Dictionary<string, string> NewParameters);
     }
 }

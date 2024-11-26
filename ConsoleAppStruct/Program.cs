@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleAppStruct
 {
@@ -10,27 +6,32 @@ namespace ConsoleAppStruct
     {
         static void Main(string[] args)
         {
-            //string[] fileData = DataAccess.AccessFileData();
-            //Subject[] subjects = DataProcessing.ConvertToSubjects(fileData);
-            //foreach (Subject subject in subjects)
-            //{
-            //    Console.WriteLine($"{subject}");
-            //}
-            //Console.ReadKey();
+            // Запись данных
+            string userInput = "Лекция| Дата:10.10.2010 Кабинет:'3-21' Преподаватель:'Jane Doe' КолвоГрупп:10";
+            try
+            {
+                Subject userSubject = DataProcessing.ConvertToCorrespondingClass(userInput);
+                DataAccess.AddFileData(userSubject);
+            }
+            catch (Exception ex) { OutputErrorMessage(ex.Message); }
 
-            //string userInput = "Лекция: 10.10.2010 '3-21' 'Jane Doe' 22";
-            string userInput = "Лекция| Дата:10.10.2010 Кабинет:'3-21' Преподаватель:'Jane Doe' КолвоГрупп:22";
-
-            Subject userSubject = DataProcessing.ConvertToCorrespondingClass(userInput);
-            DataAccess.AddFileData(userSubject);
-
+            // Получение данных
             string[] fileData = DataAccess.AccessFileData();
             Subject[] subjects = DataProcessing.ConvertToSubjects(fileData);
+
+            // Отображение данных
             foreach (Subject subject in subjects)
             {
                 Console.WriteLine($"{subject}");
             }
             Console.ReadKey();
+        }
+
+        private static void OutputErrorMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }
