@@ -10,7 +10,8 @@ namespace DopZadanie
     {
         public static int CountZeros(string input)
         {
-            throw new NotImplementedException();
+            int count = input.Count(x => x == '0');
+            return count;
         }
     }
 }
