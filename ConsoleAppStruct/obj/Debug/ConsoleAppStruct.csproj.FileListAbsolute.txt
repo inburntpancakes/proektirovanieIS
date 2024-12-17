@@ -1,0 +1,16 @@
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\ConsoleAppStruct.exe.config
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\ConsoleAppStruct.exe
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\ConsoleAppStruct.pdb
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\xunit.abstractions.dll
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\xunit.assert.dll
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\xunit.core.dll
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\xunit.execution.desktop.dll
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\xunit.abstractions.xml
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\xunit.assert.xml
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\xunit.core.xml
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\bin\Debug\xunit.execution.desktop.xml
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csproj.AssemblyReference.cache
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.csproj.CoreCompileInputs.cache
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\obj\Debug\ConsoleA.5B1FD8AD.Up2Date
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.exe
+C:\Users\Глеб\Desktop\proect\proektirovanieIS\ConsoleAppStruct\obj\Debug\ConsoleAppStruct.pdb

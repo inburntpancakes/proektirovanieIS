@@ -14,7 +14,6 @@ namespace ConsoleAppTest
             LectionSubject toAdd = new LectionSubject() { ClassroomName = classroomName, TeacherName = teacherName, Date = date, AmountOfAttendingGroups = amountOfAttendingGroups };
             string expected = toAdd.ToString();
 
-            string[] origFileData = DataAccess.AccessFileData();
             DataAccess.AddFileData(toAdd);
 
             string[] afterAddFileData = DataAccess.AccessFileData();
